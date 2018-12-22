@@ -28,5 +28,8 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 1024]
       v.customize ["modifyvm", :id, "--name", "db"]
     end
+    config.vm.provision :ansible do |ansible|
+        ansible.playbook = "playbook.yml"
+    end
   end
 end
